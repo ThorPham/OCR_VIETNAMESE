@@ -23,7 +23,7 @@ recognizer.compile(optimizer=keras.optimizers.Adam(learning_rate=0.001))
 paths = glob.glob("out_train/*")
 labels = [str(os.path.basename(i).split("_")[0]).strip() for i in paths]
 print(max([len(i) for i in labels]))
-train_labels = [(filepath, word) for filepath, word in zip(paths,labels)  if len(word.lower())<221]
+train_labels = [(filepath, word) for filepath, word in zip(paths,labels)  if len(word)<221]
 print("number trains",len(train_labels))
 # Create dataloader
 batch_size = 16
